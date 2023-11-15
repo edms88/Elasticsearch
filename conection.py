@@ -1,6 +1,14 @@
 from elasticsearch import Elasticsearch, helpers
 import configparser
 from datetime import datetime
+import csv
+from os.path import abspath, join, dirname, exists
+import tqdm
+import urllib3
+
+from elasticsearch.helpers import streaming_bulk
+
+
 
 # Lê as configurações do arquivo acess.ini
 config = configparser.ConfigParser()
