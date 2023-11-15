@@ -6,13 +6,12 @@ def main():
         # Add your cluster configuration here!
     )
     print("Creating an index...")
-    create_index(client)
-
+    
     print("Indexing documents...")
     progress = tqdm.tqdm(unit="docs", total=number_of_docs)
     successes = 0
     for ok, action in streaming_bulk(
-        client=client, index="nyc-restaurants", actions=generate_actions(),
+        client=client, index="NAME_OF_INDEX", actions=generate_actions(),
     ):
         progress.update(1)
         successes += ok
