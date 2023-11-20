@@ -12,7 +12,7 @@ def main():
     progress = tqdm.tqdm(unit="docs", total=number_of_docs)
     successes = 0
     for ok, action in streaming_bulk(
-        client=client, index="nyc-restaurants", actions=generate_actions(),
+        client=client, index="DATA_SET", actions=generate_actions(),
     ):
         progress.update(1)
         successes += ok
